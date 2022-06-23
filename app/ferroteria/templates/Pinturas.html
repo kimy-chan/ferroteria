@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Inicio</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <div class="container-fluid">
+          <h1 style="color: white ;" >Ferreteria Estandar</h1>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="navbar-nav">
+                <a style="color: white;" class="nav-link" href="{% url 'inicio'%}">Inicio</a>
+              <a style="color: white;" class="nav-link" href="{% url 'herramientas'%}">Catalogo de herramientas</a>
+              <a style="color: white;" class="nav-link" href="{% url 'login' %}">Iniciar sesion</a>
+
+      
+            </div>
+          </div>
+        </div>
+      </nav>
+
+
+
+     {% for p in pinturas  %} 
+  
+      <div   class="shadow p-3 mb-5 bg-body rounded"style="width: 18rem; float: left; margin-left: 80px; margin-top: 50px;  border-radius: 8px;">
+        <img src="{{ p.imagen.url }}" class="card-img-top" width="150px" height="200px ">
+        <div class="card-body">
+     
+          <p class="card-title">Color: {{ p.color }}</p>
+          <p class="card-title">Color: {{ p.marca }}</p>
+          <p class="card-title">Precio: {{ p.precio }} bs</p>
+         
+          <a  style="margin-left: 60px;" href="#" class="btn btn-primary">COMPRAR</a>
+        </div>
+      </div>
+
+
+     {% endfor %}
+</body>
+</html>
